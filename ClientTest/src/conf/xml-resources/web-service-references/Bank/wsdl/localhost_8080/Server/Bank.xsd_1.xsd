@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://atm.netcracker.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://atm.netcracker.com/">
+
+<xs:element name="ArgumentException" type="tns:ArgumentException"/>
+
+<xs:element name="card" type="tns:card"/>
+
+<xs:element name="checkDate" type="tns:checkDate"/>
+
+<xs:element name="checkDateResponse" type="tns:checkDateResponse"/>
+
+<xs:element name="checkPin" type="tns:checkPin"/>
+
+<xs:element name="checkPinResponse" type="tns:checkPinResponse"/>
+
+<xs:element name="company" type="tns:company"/>
+
+<xs:element name="deposite" type="tns:deposite"/>
+
+<xs:element name="depositeResponse" type="tns:depositeResponse"/>
+
+<xs:element name="getAllCompanies" type="tns:getAllCompanies"/>
+
+<xs:element name="getAllCompaniesResponse" type="tns:getAllCompaniesResponse"/>
+
+<xs:element name="getCardByCardNumber" type="tns:getCardByCardNumber"/>
+
+<xs:element name="getCardByCardNumberResponse" type="tns:getCardByCardNumberResponse"/>
+
+<xs:element name="getCurrentBalance" type="tns:getCurrentBalance"/>
+
+<xs:element name="getCurrentBalanceResponse" type="tns:getCurrentBalanceResponse"/>
+
+<xs:element name="hello" type="tns:hello"/>
+
+<xs:element name="helloResponse" type="tns:helloResponse"/>
+
+<xs:element name="payForService" type="tns:payForService"/>
+
+<xs:element name="payForServiceResponse" type="tns:payForServiceResponse"/>
+
+<xs:element name="withdraw" type="tns:withdraw"/>
+
+<xs:element name="withdrawResponse" type="tns:withdrawResponse"/>
+
+<xs:complexType name="getCardByCardNumber">
+<xs:sequence>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCardByCardNumberResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:card" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="card">
+<xs:sequence>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="expirationDate" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ArgumentException">
+<xs:sequence>
+<xs:element name="exceptionInfo" type="tns:exceptionInfo" minOccurs="0"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="exceptionInfo">
+<xs:sequence>
+<xs:element name="trace" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllCompanies">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllCompaniesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:company" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="company">
+<xs:sequence>
+<xs:element name="accountNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="services" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="title" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCurrentBalance">
+<xs:sequence>
+<xs:element name="cardCumber" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCurrentBalanceResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkPin">
+<xs:sequence>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="pin" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkPinResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hello">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="helloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="payForService">
+<xs:sequence>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="service" type="xs:string" minOccurs="0"/>
+<xs:element name="cash" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="payForServiceResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkDate">
+<xs:sequence>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkDateResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deposite">
+<xs:sequence>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="cash" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="depositeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="withdraw">
+<xs:sequence>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="cash" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="withdrawResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
