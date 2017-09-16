@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="cardNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="pin" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="pin" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
 public class CheckPin {
 
     protected String cardNumber;
-    protected int pin;
+    protected String pin;
 
     /**
      * Gets the value of the cardNumber property.
@@ -63,16 +63,24 @@ public class CheckPin {
     /**
      * Gets the value of the pin property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getPin() {
+    public String getPin() {
         return pin;
     }
 
     /**
      * Sets the value of the pin property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setPin(int value) {
+    public void setPin(String value) {
         this.pin = value;
     }
 

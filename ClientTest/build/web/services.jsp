@@ -13,23 +13,20 @@
         <center>
         <h3>
             <%= request.getSession().getAttribute("title")%>:</h3>
-        <ul>
         <%
             ArrayList<String> list = null;
             list = (ArrayList<String>)session.getAttribute("services");
             if(list!=null){
             for(String service:list){
         %> 
-            <li>
                 <form action="payForService.jsp" method="POST">
                     <input type="submit" name="enter" value="<%=service%>"><br>
                 </form>
-            </li><br>
+                <br>
         <%
             }
             }
-        %>
-        </ul><br><br>
+        %><br><br>
         <a href="companies.jsp" class="previous round">&#8249;</a>
         </center>
     </body>

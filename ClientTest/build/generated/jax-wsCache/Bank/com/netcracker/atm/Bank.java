@@ -28,19 +28,34 @@ public interface Bank {
 
     /**
      * 
+     * @param name
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "hello", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.Hello")
+    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.HelloResponse")
+    @Action(input = "http://atm.netcracker.com/Bank/helloRequest", output = "http://atm.netcracker.com/Bank/helloResponse")
+    public String hello(
+        @WebParam(name = "name", targetNamespace = "")
+        String name);
+
+    /**
+     * 
      * @param cardNumber
      * @return
-     *     returns com.netcracker.atm.Card
+     *     returns boolean
      * @throws ArgumentException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getCardByCardNumber", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.GetCardByCardNumber")
-    @ResponseWrapper(localName = "getCardByCardNumberResponse", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.GetCardByCardNumberResponse")
-    @Action(input = "http://atm.netcracker.com/Bank/getCardByCardNumberRequest", output = "http://atm.netcracker.com/Bank/getCardByCardNumberResponse", fault = {
-        @FaultAction(className = ArgumentException_Exception.class, value = "http://atm.netcracker.com/Bank/getCardByCardNumber/Fault/ArgumentException")
+    @RequestWrapper(localName = "checkDate", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.CheckDate")
+    @ResponseWrapper(localName = "checkDateResponse", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.CheckDateResponse")
+    @Action(input = "http://atm.netcracker.com/Bank/checkDateRequest", output = "http://atm.netcracker.com/Bank/checkDateResponse", fault = {
+        @FaultAction(className = ArgumentException_Exception.class, value = "http://atm.netcracker.com/Bank/checkDate/Fault/ArgumentException")
     })
-    public Card getCardByCardNumber(
+    public boolean checkDate(
         @WebParam(name = "cardNumber", targetNamespace = "")
         String cardNumber)
         throws ArgumentException_Exception
@@ -48,15 +63,21 @@ public interface Bank {
 
     /**
      * 
+     * @param cash
+     * @param cardNumber
      * @return
-     *     returns java.util.List<com.netcracker.atm.Company>
+     *     returns boolean
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAllCompanies", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.GetAllCompanies")
-    @ResponseWrapper(localName = "getAllCompaniesResponse", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.GetAllCompaniesResponse")
-    @Action(input = "http://atm.netcracker.com/Bank/getAllCompaniesRequest", output = "http://atm.netcracker.com/Bank/getAllCompaniesResponse")
-    public List<Company> getAllCompanies();
+    @RequestWrapper(localName = "withdraw", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.Withdraw")
+    @ResponseWrapper(localName = "withdrawResponse", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.WithdrawResponse")
+    @Action(input = "http://atm.netcracker.com/Bank/withdrawRequest", output = "http://atm.netcracker.com/Bank/withdrawResponse")
+    public boolean withdraw(
+        @WebParam(name = "cardNumber", targetNamespace = "")
+        String cardNumber,
+        @WebParam(name = "cash", targetNamespace = "")
+        float cash);
 
     /**
      * 
@@ -81,56 +102,6 @@ public interface Bank {
 
     /**
      * 
-     * @param cardCumber
-     * @return
-     *     returns float
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getCurrentBalance", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.GetCurrentBalance")
-    @ResponseWrapper(localName = "getCurrentBalanceResponse", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.GetCurrentBalanceResponse")
-    @Action(input = "http://atm.netcracker.com/Bank/getCurrentBalanceRequest", output = "http://atm.netcracker.com/Bank/getCurrentBalanceResponse")
-    public float getCurrentBalance(
-        @WebParam(name = "cardCumber", targetNamespace = "")
-        String cardCumber);
-
-    /**
-     * 
-     * @param cardNumber
-     * @return
-     *     returns boolean
-     * @throws ArgumentException_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "checkDate", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.CheckDate")
-    @ResponseWrapper(localName = "checkDateResponse", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.CheckDateResponse")
-    @Action(input = "http://atm.netcracker.com/Bank/checkDateRequest", output = "http://atm.netcracker.com/Bank/checkDateResponse", fault = {
-        @FaultAction(className = ArgumentException_Exception.class, value = "http://atm.netcracker.com/Bank/checkDate/Fault/ArgumentException")
-    })
-    public boolean checkDate(
-        @WebParam(name = "cardNumber", targetNamespace = "")
-        String cardNumber)
-        throws ArgumentException_Exception
-    ;
-
-    /**
-     * 
-     * @param name
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "hello", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.Hello")
-    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.HelloResponse")
-    @Action(input = "http://atm.netcracker.com/Bank/helloRequest", output = "http://atm.netcracker.com/Bank/helloResponse")
-    public String hello(
-        @WebParam(name = "name", targetNamespace = "")
-        String name);
-
-    /**
-     * 
      * @param pin
      * @param cardNumber
      * @return
@@ -145,7 +116,7 @@ public interface Bank {
         @WebParam(name = "cardNumber", targetNamespace = "")
         String cardNumber,
         @WebParam(name = "pin", targetNamespace = "")
-        int pin);
+        String pin);
 
     /**
      * 
@@ -167,20 +138,49 @@ public interface Bank {
 
     /**
      * 
-     * @param cash
-     * @param cardNumber
      * @return
-     *     returns boolean
+     *     returns java.util.List<com.netcracker.atm.Company>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "withdraw", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.Withdraw")
-    @ResponseWrapper(localName = "withdrawResponse", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.WithdrawResponse")
-    @Action(input = "http://atm.netcracker.com/Bank/withdrawRequest", output = "http://atm.netcracker.com/Bank/withdrawResponse")
-    public boolean withdraw(
+    @RequestWrapper(localName = "getAllCompanies", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.GetAllCompanies")
+    @ResponseWrapper(localName = "getAllCompaniesResponse", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.GetAllCompaniesResponse")
+    @Action(input = "http://atm.netcracker.com/Bank/getAllCompaniesRequest", output = "http://atm.netcracker.com/Bank/getAllCompaniesResponse")
+    public List<Company> getAllCompanies();
+
+    /**
+     * 
+     * @param cardCumber
+     * @return
+     *     returns float
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getCurrentBalance", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.GetCurrentBalance")
+    @ResponseWrapper(localName = "getCurrentBalanceResponse", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.GetCurrentBalanceResponse")
+    @Action(input = "http://atm.netcracker.com/Bank/getCurrentBalanceRequest", output = "http://atm.netcracker.com/Bank/getCurrentBalanceResponse")
+    public float getCurrentBalance(
+        @WebParam(name = "cardCumber", targetNamespace = "")
+        String cardCumber);
+
+    /**
+     * 
+     * @param cardNumber
+     * @return
+     *     returns com.netcracker.atm.Card
+     * @throws ArgumentException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getCardByCardNumber", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.GetCardByCardNumber")
+    @ResponseWrapper(localName = "getCardByCardNumberResponse", targetNamespace = "http://atm.netcracker.com/", className = "com.netcracker.atm.GetCardByCardNumberResponse")
+    @Action(input = "http://atm.netcracker.com/Bank/getCardByCardNumberRequest", output = "http://atm.netcracker.com/Bank/getCardByCardNumberResponse", fault = {
+        @FaultAction(className = ArgumentException_Exception.class, value = "http://atm.netcracker.com/Bank/getCardByCardNumber/Fault/ArgumentException")
+    })
+    public Card getCardByCardNumber(
         @WebParam(name = "cardNumber", targetNamespace = "")
-        String cardNumber,
-        @WebParam(name = "cash", targetNamespace = "")
-        float cash);
+        String cardNumber)
+        throws ArgumentException_Exception
+    ;
 
 }

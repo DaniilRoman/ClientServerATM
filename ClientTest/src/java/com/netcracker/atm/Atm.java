@@ -24,7 +24,7 @@ public class Atm implements TellerInterface{                                 //+
        return getCurrentBalance_1(dispenser.getCurdNumber());
     }
     
-    public boolean checkPin(int pin){
+    public boolean checkPin(String pin){
           return checkPin_1(dispenser.getCurdNumber(), pin);
     }
     
@@ -62,7 +62,7 @@ public class Atm implements TellerInterface{                                 //+
         return port.getCurrentBalance(cardCumber);
     }
 
-    private static boolean checkPin_1(java.lang.String cardNumber, int pin) {
+    private static boolean checkPin_1(java.lang.String cardNumber, String pin) {
         com.netcracker.atm.Bank_Service service = new com.netcracker.atm.Bank_Service();
         com.netcracker.atm.Bank port = service.getBankPort();
         return port.checkPin(cardNumber, pin);

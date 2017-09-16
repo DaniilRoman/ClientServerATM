@@ -36,7 +36,7 @@ public class Bank{
      * @return 
      */
     @WebMethod(operationName = "checkPin")
-    public boolean checkPin(@WebParam(name = "cardNumber") String cardNumber, @WebParam(name = "pin") int pin) {
+    public boolean checkPin(@WebParam(name = "cardNumber") String cardNumber, @WebParam(name = "pin") String pin) {
         return server.checkPin(cardNumber, pin);
     }
 

@@ -6,6 +6,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 
 public class CheakPin extends Dispatcher {
 
@@ -25,7 +26,12 @@ public class CheakPin extends Dispatcher {
         try{
         int pin = Integer.parseInt(request.getParameter("pin"));
         Atm atm = (Atm)request.getSession().getAttribute("atm");
-           if(atm.checkPin(pin)) super.forward("/CardValid", request, response);
+        
+        StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
+        encryptor.setPassword("mySecretPassword");        
+        String encryptedPin = encryptor.encrypt(String.valueOf(pin));
+        
+           if(atm.checkPin(encryptedPin)) super.forward("/CardValid", request, response);
            else{ 
                request.getSession().setAttribute("ex", "Invalid pin code.");
                request.getSession().setAttribute("page", "pin.jsp");

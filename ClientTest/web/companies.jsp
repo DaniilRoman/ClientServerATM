@@ -12,25 +12,17 @@
         <link rel="stylesheet" type="text/css" href="buttons.css" media="all">
         <center>
         <h3>List of companies:</h3>
-        
-        <ul>
         <%
             ArrayList<Company> list = null;
             list = (ArrayList<Company>)session.getAttribute("companies");
             if(list!=null){
             for(Company company:list){
         %> 
-            <li>
                 <form action="Services" method="POST">
-                     <input type="submit" name="company" value="<%=company.getTitle()%>"><br>
-                </form>                 
-            </li><br>
+                     <input type="submit" name="company" value="<%=company.getTitle()%>"><br><br>
+                </form>     
         <%
             }
-        %>
-        </ul>
-        
-        <%
             }
         %>
         <br><br>

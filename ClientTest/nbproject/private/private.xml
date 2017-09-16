@@ -3,11 +3,31 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/dao/impl/ConnectionFabrica.java</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/servlets/CardValid.java</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/web/start.jsp</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/servlets/Services.java</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/servlets/Dispatcher.java</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/web/change.jsp</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/web/deposit.jsp</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/web/currentBalance.jsp</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/servlets/PayForService.java</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/servlets/CheakPin.java</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/web/shortChange.jsp</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/servlets/Withdraw.java</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/web/payForService.jsp</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/web/withdraw.jsp</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/web/false.jsp</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/web/pin.jsp</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/servlets/Pin.java</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/web/services.jsp</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/web/companies.jsp</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/web/true.jsp</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/web/error.jsp</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/servlets/Clear.java</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/servlets/CurrentBalance.java</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/web/cardOver.jsp</file>
             <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/servlets/Companies.java</file>
-            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/dao/impl/BillsMySqlDao.java</file>
-            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/dao/impl/HibernateUtil.java</file>
-            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/Atm.java</file>
+            <file>file:/D:/Java_prog/NC/projectNC/ClientTest/src/java/com/netcracker/atm/servlets/Deposit.java</file>
         </group>
     </open-files>
 </project-private>

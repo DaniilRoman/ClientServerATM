@@ -8,11 +8,10 @@
     </head>
     <body>
         <center>
-        <ul>
-            <li><a href="CurrentBalance">Show balance</a></li>
-            <li><a href="withdraw.jsp">Withdraw cash</a></li>
-            <li><a href="deposit.jsp">Deposit to account</a></li>
-        </ul><br><br><br>
+            <a href="CurrentBalance">Show balance</a><br>
+            <a href="withdraw.jsp">Withdraw cash</a><br>
+            <a href="deposit.jsp">Deposit to account</a><br>
+                <br><br><br>
         <a href="Clear">Eject a card</a>
         </center>
     </body>

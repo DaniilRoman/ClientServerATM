@@ -107,7 +107,7 @@
 <xs:complexType name="checkPin">
 <xs:sequence>
 <xs:element name="cardNumber" type="xs:string" minOccurs="0"/>
-<xs:element name="pin" type="xs:int"/>
+<xs:element name="pin" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

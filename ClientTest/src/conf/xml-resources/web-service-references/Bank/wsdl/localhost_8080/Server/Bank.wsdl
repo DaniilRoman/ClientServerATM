@@ -4,32 +4,11 @@
 <xsd:import namespace="http://atm.netcracker.com/" schemaLocation="http://localhost:8080/Server/Bank?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="getCardByCardNumber">
-<part name="parameters" element="tns:getCardByCardNumber"/>
+<message name="hello">
+<part name="parameters" element="tns:hello"/>
 </message>
-<message name="getCardByCardNumberResponse">
-<part name="parameters" element="tns:getCardByCardNumberResponse"/>
-</message>
-<message name="ArgumentException">
-<part name="fault" element="tns:ArgumentException"/>
-</message>
-<message name="getAllCompanies">
-<part name="parameters" element="tns:getAllCompanies"/>
-</message>
-<message name="getAllCompaniesResponse">
-<part name="parameters" element="tns:getAllCompaniesResponse"/>
-</message>
-<message name="payForService">
-<part name="parameters" element="tns:payForService"/>
-</message>
-<message name="payForServiceResponse">
-<part name="parameters" element="tns:payForServiceResponse"/>
-</message>
-<message name="getCurrentBalance">
-<part name="parameters" element="tns:getCurrentBalance"/>
-</message>
-<message name="getCurrentBalanceResponse">
-<part name="parameters" element="tns:getCurrentBalanceResponse"/>
+<message name="helloResponse">
+<part name="parameters" element="tns:helloResponse"/>
 </message>
 <message name="checkDate">
 <part name="parameters" element="tns:checkDate"/>
@@ -37,11 +16,20 @@
 <message name="checkDateResponse">
 <part name="parameters" element="tns:checkDateResponse"/>
 </message>
-<message name="hello">
-<part name="parameters" element="tns:hello"/>
+<message name="ArgumentException">
+<part name="fault" element="tns:ArgumentException"/>
 </message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse"/>
+<message name="withdraw">
+<part name="parameters" element="tns:withdraw"/>
+</message>
+<message name="withdrawResponse">
+<part name="parameters" element="tns:withdrawResponse"/>
+</message>
+<message name="payForService">
+<part name="parameters" element="tns:payForService"/>
+</message>
+<message name="payForServiceResponse">
+<part name="parameters" element="tns:payForServiceResponse"/>
 </message>
 <message name="checkPin">
 <part name="parameters" element="tns:checkPin"/>
@@ -55,38 +43,41 @@
 <message name="depositeResponse">
 <part name="parameters" element="tns:depositeResponse"/>
 </message>
-<message name="withdraw">
-<part name="parameters" element="tns:withdraw"/>
+<message name="getAllCompanies">
+<part name="parameters" element="tns:getAllCompanies"/>
 </message>
-<message name="withdrawResponse">
-<part name="parameters" element="tns:withdrawResponse"/>
+<message name="getAllCompaniesResponse">
+<part name="parameters" element="tns:getAllCompaniesResponse"/>
+</message>
+<message name="getCurrentBalance">
+<part name="parameters" element="tns:getCurrentBalance"/>
+</message>
+<message name="getCurrentBalanceResponse">
+<part name="parameters" element="tns:getCurrentBalanceResponse"/>
+</message>
+<message name="getCardByCardNumber">
+<part name="parameters" element="tns:getCardByCardNumber"/>
+</message>
+<message name="getCardByCardNumberResponse">
+<part name="parameters" element="tns:getCardByCardNumberResponse"/>
 </message>
 <portType name="Bank">
-<operation name="getCardByCardNumber">
-<input wsam:Action="http://atm.netcracker.com/Bank/getCardByCardNumberRequest" message="tns:getCardByCardNumber"/>
-<output wsam:Action="http://atm.netcracker.com/Bank/getCardByCardNumberResponse" message="tns:getCardByCardNumberResponse"/>
-<fault message="tns:ArgumentException" name="ArgumentException" wsam:Action="http://atm.netcracker.com/Bank/getCardByCardNumber/Fault/ArgumentException"/>
-</operation>
-<operation name="getAllCompanies">
-<input wsam:Action="http://atm.netcracker.com/Bank/getAllCompaniesRequest" message="tns:getAllCompanies"/>
-<output wsam:Action="http://atm.netcracker.com/Bank/getAllCompaniesResponse" message="tns:getAllCompaniesResponse"/>
-</operation>
-<operation name="payForService">
-<input wsam:Action="http://atm.netcracker.com/Bank/payForServiceRequest" message="tns:payForService"/>
-<output wsam:Action="http://atm.netcracker.com/Bank/payForServiceResponse" message="tns:payForServiceResponse"/>
-</operation>
-<operation name="getCurrentBalance">
-<input wsam:Action="http://atm.netcracker.com/Bank/getCurrentBalanceRequest" message="tns:getCurrentBalance"/>
-<output wsam:Action="http://atm.netcracker.com/Bank/getCurrentBalanceResponse" message="tns:getCurrentBalanceResponse"/>
+<operation name="hello">
+<input wsam:Action="http://atm.netcracker.com/Bank/helloRequest" message="tns:hello"/>
+<output wsam:Action="http://atm.netcracker.com/Bank/helloResponse" message="tns:helloResponse"/>
 </operation>
 <operation name="checkDate">
 <input wsam:Action="http://atm.netcracker.com/Bank/checkDateRequest" message="tns:checkDate"/>
 <output wsam:Action="http://atm.netcracker.com/Bank/checkDateResponse" message="tns:checkDateResponse"/>
 <fault message="tns:ArgumentException" name="ArgumentException" wsam:Action="http://atm.netcracker.com/Bank/checkDate/Fault/ArgumentException"/>
 </operation>
-<operation name="hello">
-<input wsam:Action="http://atm.netcracker.com/Bank/helloRequest" message="tns:hello"/>
-<output wsam:Action="http://atm.netcracker.com/Bank/helloResponse" message="tns:helloResponse"/>
+<operation name="withdraw">
+<input wsam:Action="http://atm.netcracker.com/Bank/withdrawRequest" message="tns:withdraw"/>
+<output wsam:Action="http://atm.netcracker.com/Bank/withdrawResponse" message="tns:withdrawResponse"/>
+</operation>
+<operation name="payForService">
+<input wsam:Action="http://atm.netcracker.com/Bank/payForServiceRequest" message="tns:payForService"/>
+<output wsam:Action="http://atm.netcracker.com/Bank/payForServiceResponse" message="tns:payForServiceResponse"/>
 </operation>
 <operation name="checkPin">
 <input wsam:Action="http://atm.netcracker.com/Bank/checkPinRequest" message="tns:checkPin"/>
@@ -96,44 +87,23 @@
 <input wsam:Action="http://atm.netcracker.com/Bank/depositeRequest" message="tns:deposite"/>
 <output wsam:Action="http://atm.netcracker.com/Bank/depositeResponse" message="tns:depositeResponse"/>
 </operation>
-<operation name="withdraw">
-<input wsam:Action="http://atm.netcracker.com/Bank/withdrawRequest" message="tns:withdraw"/>
-<output wsam:Action="http://atm.netcracker.com/Bank/withdrawResponse" message="tns:withdrawResponse"/>
+<operation name="getAllCompanies">
+<input wsam:Action="http://atm.netcracker.com/Bank/getAllCompaniesRequest" message="tns:getAllCompanies"/>
+<output wsam:Action="http://atm.netcracker.com/Bank/getAllCompaniesResponse" message="tns:getAllCompaniesResponse"/>
+</operation>
+<operation name="getCurrentBalance">
+<input wsam:Action="http://atm.netcracker.com/Bank/getCurrentBalanceRequest" message="tns:getCurrentBalance"/>
+<output wsam:Action="http://atm.netcracker.com/Bank/getCurrentBalanceResponse" message="tns:getCurrentBalanceResponse"/>
+</operation>
+<operation name="getCardByCardNumber">
+<input wsam:Action="http://atm.netcracker.com/Bank/getCardByCardNumberRequest" message="tns:getCardByCardNumber"/>
+<output wsam:Action="http://atm.netcracker.com/Bank/getCardByCardNumberResponse" message="tns:getCardByCardNumberResponse"/>
+<fault message="tns:ArgumentException" name="ArgumentException" wsam:Action="http://atm.netcracker.com/Bank/getCardByCardNumber/Fault/ArgumentException"/>
 </operation>
 </portType>
 <binding name="BankPortBinding" type="tns:Bank">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="getCardByCardNumber">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="ArgumentException">
-<soap:fault name="ArgumentException" use="literal"/>
-</fault>
-</operation>
-<operation name="getAllCompanies">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="payForService">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getCurrentBalance">
+<operation name="hello">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -154,7 +124,16 @@
 <soap:fault name="ArgumentException" use="literal"/>
 </fault>
 </operation>
-<operation name="hello">
+<operation name="withdraw">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="payForService">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -181,7 +160,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="withdraw">
+<operation name="getAllCompanies">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -189,6 +168,27 @@
 <output>
 <soap:body use="literal"/>
 </output>
+</operation>
+<operation name="getCurrentBalance">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getCardByCardNumber">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="ArgumentException">
+<soap:fault name="ArgumentException" use="literal"/>
+</fault>
 </operation>
 </binding>
 <service name="Bank">

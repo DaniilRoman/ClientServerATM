@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 
 /**
  *
@@ -31,11 +32,16 @@ public class Server {
         }
     }
     
-    public boolean checkPin(String cardNumber, int pin){
+    public boolean checkPin(String cardNumber, String pin){
         try {
             Account account;
             account = acc.getAccount(cardNumber);
-            account.setPin(pin);
+
+        StandardPBEStringEncryptor decryptor = new StandardPBEStringEncryptor();
+        decryptor.setPassword("mySecretPassword");  
+        String decryptedPin = decryptor.decrypt(pin);
+            
+            account.setPin(Integer.parseInt(decryptedPin));
             if(account.hashCode()==acc.getAccount(cardNumber).getPin()){
                 return true;
             }
